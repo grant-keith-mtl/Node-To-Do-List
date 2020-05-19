@@ -1,23 +1,17 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <title>To Do List</title>
-    </head>
-    <body>
-            <h1><%= kindOfDay %></h1>
-
-            <ul>
-                <% for (var i=0; i<newListItems.length; i++){ %>
-                    <li><%= newListItems[i] %></li>
+<%- include("header") -%> 
+<div class="box" id="heading">
+            <h1><%= listTitle %></h1>
+        </div>    
+        <div class="box">
+            <% for (var i=0; i<newListItems.length; i++){ %>
+                <div class="item">
+                    <input type="checkbox">
+                    <p><%= newListItems[i] %></p>
+                </div>
                 <% } %>
-            </ul>
-
-            <form class="" action="/" method="POST">
-                <input type="text" name="newItem">
-                <button type="submit" name="button">Add</button>
-            </form>
-    </body>
-</html>
+                <form class="item" action="/" method="POST">
+                    <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+                    <button type="submit" name="list" value=<%= listTitle %></button>+</button>
+                </form>
+        </div>           
+        <%- include("footer") -%> 
